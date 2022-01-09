@@ -1,5 +1,6 @@
 import React, { ReactElement } from "react";
 import Image from "next/image";
+import clsx from "clsx";
 
 interface Props {
   title: string;
@@ -11,30 +12,50 @@ interface Props {
     views: string;
     uploaded_at: string;
   };
+  type?: "small" | "big";
   baseColor: string;
 }
 
-export default function BannerCard(props: Props): ReactElement {
+export default function BannerCard({
+  type = "big",
+  ...props
+}: Props): ReactElement {
   return (
     <div className="w-full h-[230px] max-h-[250px] relative rounded-xl text-xl overflow-hidden lg:min-h-[350px] lg:max-h-[350px]">
-      <div className="absolute w-full object-cover lg:object-none  object-left-top top-0 bottom-0 z-0 min-h-[500px]">
+      <div
+        className={clsx(
+          "absolute w-full object-cover lg:object-none  object-left-top top-0 bottom-0 z-0 min-h-[500px]",
+          type === "small" && ["order-2"]
+        )}
+      >
         <Image
-          layout="responsive"
-          width={500}
-          height={500}
+          layout="fill"
           src={props.videoThumb}
           alt="big"
           objectFit="cover"
+          objectPosition={"left top"}
         />
       </div>
 
-      <div className="relative z-10 w-full flex flex-col h-full">
+      <div className={clsx("relative z-10 w-full flex flex-col h-full")}>
         <h2 className="px-10  pt-10 w-[310px] font-semibold  lg:text-3xl text-white">
           {props.title}
         </h2>
 
-        <div className="flex pl-10 w-max relative flex-wrap flex-row items-center mt-7">
-          <div className="hidden box-border p-1 border-2 rounded-full border-white border-opacity-70  w-14 h-14 justify-center items-center relative  mr-3 lg:block">
+        <div
+          className={clsx(
+            "flex pl-10 w-max  relative flex-wrap flex-row  mt-7",
+            type === "small" && ["flex-col"],
+            type === "big" && ["items-center"]
+          )}
+        >
+          {/**Image Section */}
+          <div
+            className={clsx(
+              "hidden box-border p-1 border-2 rounded-full border-white border-opacity-70  w-14 h-14 justify-center items-center relative  mr-3 lg:block",
+              type === "small" && ["order-2 mt-2"]
+            )}
+          >
             <Image
               src={props.person.img}
               alt="Uploader Profile"
@@ -82,7 +103,7 @@ export default function BannerCard(props: Props): ReactElement {
               <span className="hidden lg:inline">
                 {props.person.views} views .
               </span>
-              <span>{props.person.uploaded_at}</span>
+              <span> {props.person.uploaded_at}</span>
             </p>
           </div>
         </div>

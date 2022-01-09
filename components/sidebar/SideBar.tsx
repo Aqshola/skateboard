@@ -7,7 +7,7 @@ interface Props {}
 export default function SideBar({}: Props): ReactElement {
   return (
     <>
-      <h2 className="font-semibold text-sm text-[#808191] mb-6">MENU</h2>
+      <h2 className="font-semibold  text-sm text-[#808191] mb-6">MENU</h2>
       <div className="flex flex-col mt-6 gap-8">
         <LinkSideBar label="Discover" active={true} Logo={Home} />
         <LinkSideBar label="Trending" Logo={ArrowRight} />
