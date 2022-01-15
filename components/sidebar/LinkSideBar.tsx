@@ -1,10 +1,11 @@
 import React, { ReactElement } from "react";
 import clsx from "clsx";
+import { IconProps } from "react-iconly";
 
 interface Props {
   label: string;
   active?: boolean;
-  Logo?: any;
+  Logo?: React.FC<IconProps>;
 }
 
 export default function LinkSideBar({
