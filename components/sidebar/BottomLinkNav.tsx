@@ -32,7 +32,7 @@ export default function BottomLinkNav({
           }}
         />
       </div>
-      <span className="mt-2 font-medium text-xs">{label}</span>
+      <span className="mt-2 tracking-wider font-medium text-xs">{label}</span>
     </a>
   );
 }

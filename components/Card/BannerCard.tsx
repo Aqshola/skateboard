@@ -38,13 +38,13 @@ export default function BannerCard({
       </div>
 
       <div className={clsx("relative z-10 w-full flex flex-col h-full")}>
-        <h2 className="px-10  pt-10 w-[310px] font-semibold  lg:text-3xl text-white">
+        <h2 className="px-6 lg:px-10  pt-10 w-[230px] lg:w-[310px] font-semibold  text-lg  lg:text-3xl text-white">
           {props.title}
         </h2>
 
         <div
           className={clsx(
-            "flex pl-10 w-max  relative flex-wrap flex-row  mt-7",
+            "flex px-6 lg:pl-10 w-max  relative flex-wrap flex-row  mt-7",
             type === "small" && ["flex-col"],
             type === "big" && ["items-center"]
           )}
@@ -108,7 +108,7 @@ export default function BannerCard({
           </div>
         </div>
 
-        <p className="mr-10 absolute bottom-0 font-medium text-[10px] bg-[#242730] bg-opacity-50 rounded-3xl py-1 px-2 text-white w-max self-end mb-5">
+        <p className="hidden lg:block mr-10 absolute bottom-0 font-medium text-[10px] bg-[#242730] bg-opacity-50 rounded-3xl py-1 px-2 text-white w-max self-end mb-5">
           {props.videoLength}
         </p>
       </div>

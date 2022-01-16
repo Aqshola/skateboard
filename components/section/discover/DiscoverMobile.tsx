@@ -7,7 +7,7 @@ interface Props {}
 
 export default function DiscoverMobile({}: Props): ReactElement {
   return (
-    <div>
+    <div className="lg:hidden">
       <Swiper
         spaceBetween={12}
         slidesPerView={1.1}
