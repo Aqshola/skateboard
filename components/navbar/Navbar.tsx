@@ -8,7 +8,7 @@ interface Props {}
 
 export default function Navbar({}: Props): ReactElement {
   const route = useRouter();
-  console.log(route);
+
   return (
     <div className="sticky top-0 z-50 bg-[#1F1D2B]">
       <DesktopNav />
