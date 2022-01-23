@@ -1,15 +1,14 @@
 import React, { ReactElement } from "react";
 import { Notification, ChevronDown, Search } from "react-iconly";
 import Image from "next/image";
+import Link from "next/link"
 
-interface Props {}
-
-export default function DesktopNav({}: Props): ReactElement {
+export default function DesktopNav(): ReactElement {
   return (
     <>
       <div className="hidden lg:grid grid-cols-12 pl-6 md:px-6 py-7 max-w-screen-2xl items-center">
         <div className="col-span-2 text-white text-xl flex ">
-          <a href="">skateboard</a>
+          <Link href="/">skateboard</Link>
         </div>
         <div className="col-start-3 col-span-10 text-white grid grid-cols-6">
           <div className="col-span-4 bg-white rounded-lg bg-opacity-10 flex items-center py-3 px-3 ">

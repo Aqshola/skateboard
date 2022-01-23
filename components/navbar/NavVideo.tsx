@@ -1,18 +1,20 @@
 import React, { ReactElement } from "react";
 import { ArrowLeft, Heart } from "react-iconly";
 import Image from "next/image";
+import {useRouter} from "next/router"
 
 interface Props {}
 
 export default function NavVideo({}: Props): ReactElement {
+  const route=useRouter();
   return (
     <div className="px-6 py-7 flex lg:hidden items-center">
-      <button aria-label="back" className="mr-6">
+      <button aria-label="back" className="mr-6" onClick={()=>route.back()}>
         <ArrowLeft primaryColor="#808191" />
       </button>
       <div className="flex-grow flex items-center">
         <Image
-          src="/image/profile/image 11.png"
+          src="/image/person/image 2.png"
           width={48}
           height={48}
           layout="fixed"

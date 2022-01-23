@@ -1,8 +1,10 @@
 import React, { ReactElement } from "react";
 import BannerCard from "components/Card/BannerCard";
-interface Props {}
+import Video from "data/Video";
 
-export default function DiscoverDesktop({}: Props): ReactElement {
+
+
+export default function DiscoverDesktop(): ReactElement {
   return (
     <div>
       <h1 className="font-semibold text-white text-5xl hidden lg:block">
@@ -11,33 +13,30 @@ export default function DiscoverDesktop({}: Props): ReactElement {
       <div className="grid-cols-12 mt-7 gap-5 hidden lg:grid">
         <div className="col-span-8">
           <BannerCard
-            title="How to do Basic Jumping and how to landing safely"
-            videoThumb="/image/bigCard/image 1.png"
-            videoLength="7 Min"
+            title={Video[0].title}
+            videoThumb={Video[0].thumb.img}
+            videoLength={Video[0].length}
             person={{
-              name: "Thomas Hope",
-              img: "/image/profile/bigProfile2.png",
-              uploaded_at: "2 weeks ago",
-              views: "53k",
+              name: Video[0].person.name,
+              img: Video[0].person.img,
+              uploaded_at: Video[0].uploadedAt,
+              views: Video[0].views,
             }}
-            baseColor="#40b1c3"
+            baseColor={Video[0].thumb.baseColor}
           />
         </div>
         <div className="col-span-4">
-          <BannerCard
-            type="small"
-            title="Skateboard
-									Tips You need
-									to know"
-            videoThumb="/image/bigCard/image 3.png"
-            videoLength="7 Min"
+        <BannerCard
+            title={Video[1].title}
+            videoThumb={Video[1].thumb.img}
+            videoLength={Video[1].length}
             person={{
-              name: "Thomas Hope",
-              img: "/image/profile/bigProfile2.png",
-              uploaded_at: "2 weeks ago",
-              views: "53k",
+              name: Video[1].person.name,
+              img: Video[1].person.img,
+              uploaded_at: Video[1].uploadedAt,
+              views: Video[1].views,
             }}
-            baseColor="#e8ad67"
+            baseColor={Video[1].thumb.baseColor}
           />
         </div>
       </div>

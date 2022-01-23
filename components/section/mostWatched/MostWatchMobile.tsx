@@ -2,51 +2,52 @@ import DiscoverCardMobile from "components/Card/DiscoverCardMobile";
 import React, { ReactElement } from "react";
 import { Swiper, SwiperSlide } from "swiper/react";
 import "swiper/css";
+import Video from "data/Video";
+import next from "next";
 
 interface Props {}
 
 export default function MostWatchMobile({}: Props): ReactElement {
+  const videoList = groupArray(Video.slice(2, Video.length));
+  
   return (
     <div className="w-full mt-8 lg:hidden">
       <h1 className="mb-5 text-white font-semibold">Most Watched</h1>
       <Swiper spaceBetween={14} slidesPerView={1.07}>
-        <SwiperSlide>
-          <div className="flex flex-col gap-6">
-            <DiscoverCardMobile
-              title="Basic how to ride your skateboard comfortly"
-              viewCount="53K"
-              uploader="Andy William"
-              uploadedAt="2 weeks ago"
-              img="/image/smallCard/image 5.png"
-            />
-            <DiscoverCardMobile
-              title="Basic how to ride your skateboard comfortly"
-              viewCount="53K"
-              uploader="Andy William"
-              uploadedAt="2 weeks ago"
-              img="/image/smallCard/image 5.png"
-            />
-          </div>
-        </SwiperSlide>
-        <SwiperSlide>
-          <div className="flex flex-col gap-6">
-            <DiscoverCardMobile
-              title="Basic how to ride your skateboard comfortly"
-              viewCount="53K"
-              uploader="Andy William"
-              uploadedAt="2 weeks ago"
-              img="/image/smallCard/image 5.png"
-            />
-            <DiscoverCardMobile
-              title="Basic how to ride your skateboard comfortly"
-              viewCount="53K"
-              uploader="Andy William"
-              uploadedAt="2 weeks ago"
-              img="/image/smallCard/image 5.png"
-            />
-          </div>
-        </SwiperSlide>
+        {videoList.map((video) => (
+          <SwiperSlide>
+            <div className="flex flex-col gap-6">
+              {video.map((child) => (
+                <DiscoverCardMobile
+                  title={child.title}
+                  viewCount={child.views}
+                  uploader={child.person.name}
+                  uploadedAt={child.uploadedAt}
+                  img={child.thumb.img}
+                />
+              ))}
+            </div>
+          </SwiperSlide>
+        ))}
       </Swiper>
     </div>
   );
+}
+
+function groupArray(data: Array<any>): Array<any> {
+  let count = 0;
+  let array: any[] = [];
+  let group: any[] = [];
+  for (let i = 0; i < data.length; i++) {
+    group.push(data[i]);
+    count++;
+    if (count == 2) {
+      array.push(group);
+      group = [];
+      count = 0;
+      next;
+    }
+  }
+
+  return array;
 }

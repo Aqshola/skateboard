@@ -10,10 +10,10 @@ export default function Navbar({}: Props): ReactElement {
   const route = useRouter();
 
   return (
-    <div className="sticky top-0 z-50 bg-[#1F1D2B]">
-      <DesktopNav />
-
-      {route.pathname === "/video" ? <NavVideo /> : <MobileNav />}
-    </div>
+    <>
+    <DesktopNav />
+    {route.pathname === "/video" ? <NavVideo /> : <MobileNav />}
+    </>
+    
   );
 }

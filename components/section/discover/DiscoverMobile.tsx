@@ -2,50 +2,41 @@ import React, { ReactElement } from "react";
 import { Swiper, SwiperSlide } from "swiper/react";
 import "swiper/css";
 import BannerCard from "components/Card/BannerCard";
+import Video from "data/Video"
 
-interface Props {}
 
-export default function DiscoverMobile({}: Props): ReactElement {
+
+export default function DiscoverMobile(): ReactElement {
   return (
     <div className="lg:hidden">
       <Swiper
         spaceBetween={12}
         slidesPerView={1.1}
-        onSlideChange={() => console.log("slide change")}
-        onSwiper={(swiper) => console.log(swiper)}
+        // onSlideChange={() => console.log("slide change")}
+        // onSwiper={(swiper) => console.log(swiper)}
       >
+
+        {Video.slice(0,2).map(video=>(
         <SwiperSlide>
-          <div className="w-full">
-            <BannerCard
-              title="How to do Basic Jumping and how to landing safely"
-              videoThumb="/image/bigCard/image 1.png"
-              videoLength="7 Min"
-              person={{
-                name: "Thomas Hope",
-                img: "/image/profile/bigProfile2.png",
-                uploaded_at: "2 weeks ago",
-                views: "53k",
-              }}
-              baseColor="#40b1c3"
-            />
-          </div>
-        </SwiperSlide>
-        <SwiperSlide>
-          <div className="w-full">
-            <BannerCard
-              title="How to do Basic Jumping and how to landing safely"
-              videoThumb="/image/bigCard/image 1.png"
-              videoLength="7 Min"
-              person={{
-                name: "Thomas Hope",
-                img: "/image/profile/bigProfile2.png",
-                uploaded_at: "2 weeks ago",
-                views: "53k",
-              }}
-              baseColor="#40b1c3"
-            />
-          </div>
-        </SwiperSlide>
+        <div className="w-full">
+          
+          <BannerCard
+            title={video.title}
+            videoThumb={video.thumb.img}
+            videoLength={video.length}
+            person={{
+              name: video.person.name,
+              img: video.person.img,
+              uploaded_at: video.uploadedAt,
+              views: video.views,
+            }}
+            baseColor={video.thumb.baseColor}
+          />
+        </div>
+      </SwiperSlide>  
+        ))}
+        
+        
       </Swiper>
     </div>
   );

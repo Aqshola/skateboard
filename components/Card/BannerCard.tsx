@@ -9,7 +9,7 @@ interface Props {
   person: {
     img: string;
     name: string;
-    views: string;
+    views: number;
     uploaded_at: string;
   };
   type?: "small" | "big";
@@ -63,6 +63,7 @@ export default function BannerCard({
               objectFit="cover"
               width={54}
               height={54}
+              className="rounded-full overflow-hidden"
             />
 
             {/** Verified Section*/}

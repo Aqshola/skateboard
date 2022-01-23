@@ -7,8 +7,9 @@
 @layer base {
   html,
   body {
-    @apply font-poppins;
+    @apply font-poppins bg-white dark:bg-[#1F1D2B];
     scroll-behavior: smooth;
+    
   }
   p {
     @apply leading-normal;
