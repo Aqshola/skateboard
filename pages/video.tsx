@@ -2,8 +2,10 @@ import Layout from "components/Layout";
 import React, { ReactElement, useState } from "react";
 import ReactPlayer from "react-player/youtube";
 import { Show, ChevronDown, Send, Heart, MoreCircle } from "react-iconly";
-import Image from "next/image";
+
 import clsx from "clsx";
+import CommentCard from "components/Card/CommentCard";
+import PersonList from "data/Person";
 
 interface Props {}
 
@@ -15,7 +17,7 @@ export default function Video({}: Props): ReactElement {
         {/* 
           Video Player
       */}
-        <div className="w-full h-[261px] lg:h-[500px]  flex justify-center px-6 rounded-3xl overflow-hidden relative">
+        <div className="z-10 w-full h-[261px] lg:h-[500px]  flex justify-center px-6 rounded-3xl overflow-hidden relative">
           <ReactPlayer
             width={"100%"}
             height={"100%"}
@@ -77,34 +79,10 @@ export default function Video({}: Props): ReactElement {
         <div className="pl-6">
           <hr className="opacity-5" />
         </div>
-        <div className="px-6 mt-6">
-          <div className="flex gap-2">
-            <div
-              id="comment-face"
-              className="basis-12 relative flex-shrink-0 h-12 rounded-full bg-gray-400 overflow-hidden"
-            >
-              <Image
-                src="/image/person/image 12.png"
-                layout="fill"
-                objectFit="cover"
-                alt="comment profile"
-                objectPosition={"center"}
-              />
-            </div>
-            <div
-              id="comment-detail"
-              className="p-4 rounded-bl-xl rounded-r-xl bg-[#252836]"
-            >
-              <h2 className="text-sm text-white">
-                Wijaya Abadi{" "}
-                <span className="bg-[#22B07D] inline-block w-2 ml-1 h-2 rounded-full "></span>
-              </h2>
-              <p className="text-xs text-[#808191] mt-2 leading-5">
-                Lorem, ipsum dolor sit amet consectetur adipisicing elit. Eum,
-                harum?
-              </p>
-            </div>
-          </div>
+        <div className="px-6 mt-6 gap-4 flex flex-col ">
+          {PersonList.slice(0,2).map(person=>(
+            <CommentCard profileImg={person.img} name={person.name} text={""}/>
+          ))}
         </div>
 
         <div className="fixed bottom-10 px-6 mb-2 w-full max-w-screen-2xl">
