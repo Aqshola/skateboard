@@ -2,10 +2,10 @@ import Layout from "components/Layout";
 import React, { ReactElement, useState } from "react";
 import ReactPlayer from "react-player/youtube";
 import { Show, ChevronDown, Send, Heart, MoreCircle } from "react-iconly";
-
 import clsx from "clsx";
 import CommentCard from "components/Card/CommentCard";
 import PersonList from "data/Person";
+import { AnimatePresence, motion } from "framer-motion";
 
 interface Props {}
 
@@ -57,35 +57,54 @@ export default function Video({}: Props): ReactElement {
               <p className="text-xs text-[#808191]">47,987 likes</p>
             </div>
           </div>
-          {showDesc && (
-            <p className="text-xs font-extralight leading-4 tracking-wide mt-2">
-              Lorem ipsum dolor sit amet consectetur adipisicing elit. Molestiae
-              soluta laboriosam nulla provident modi recusandae quod obcaecati
-              iste unde officiis minus rerum fuga illum perferendis, dolorum,
-              iusto ad quis quidem quisquam! Odio excepturi reprehenderit
-              repellendus possimus, mollitia laboriosam consequatur laborum hic
-              tenetur rem sint adipisci cumque ducimus. Sunt distinctio facilis
-              laborum, saepe dicta recusandae officiis repellat beatae
-              dignissimos cupiditate dolores, illum accusantium delectus,
-              nesciunt neque voluptates. Sed quasi consequatur consectetur
-              fugiat temporibus! Voluptas ullam temporibus ipsam, eveniet quos
-              magni perferendis qui, veritatis natus nemo quidem, vel itaque aut
-              quas commodi accusamus assumenda dicta? Accusantium quos enim eum
-              asperiores placeat quasi!
-            </p>
-          )}
+          <AnimatePresence>
+            {showDesc && (
+              <motion.p
+                initial={{
+                  height: 0,
+                  opacity: 0,
+                }}
+                animate={{
+                  height: "fit-content",
+                  opacity: 1,
+                }}
+                exit={{
+                  height: 0,
+                  opacity: 0,
+                }}
+                className="text-xs font-extralight leading-4 tracking-wide mt-2"
+              >
+                Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                Molestiae soluta laboriosam nulla provident modi recusandae quod
+                obcaecati iste unde officiis minus rerum fuga illum perferendis,
+                dolorum, iusto ad quis quidem quisquam! Odio excepturi
+                reprehenderit repellendus possimus, mollitia laboriosam
+                consequatur laborum hic tenetur rem sint adipisci cumque
+                ducimus. Sunt distinctio facilis laborum, saepe dicta recusandae
+                officiis repellat beatae dignissimos cupiditate dolores, illum
+                accusantium delectus, nesciunt neque voluptates. Sed quasi
+                consequatur consectetur fugiat temporibus! Voluptas ullam
+                temporibus ipsam, eveniet quos magni perferendis qui, veritatis
+                natus nemo quidem, vel itaque aut quas commodi accusamus
+                assumenda dicta? Accusantium quos enim eum asperiores placeat
+                quasi!
+              </motion.p>
+            )}
+          </AnimatePresence>
         </div>
 
         <div className="pl-6">
           <hr className="opacity-5" />
         </div>
+
+        
         <div className="px-6 mt-6 gap-4 flex flex-col ">
-          {PersonList.slice(0,2).map(person=>(
-            <CommentCard profileImg={person.img} name={person.name} text={""}/>
+          {PersonList.slice(0, 2).map((person) => (
+            <CommentCard profileImg={person.img} name={person.name} text={""} />
           ))}
         </div>
 
-        <div className="fixed bottom-10 px-6 mb-2 w-full max-w-screen-2xl">
+        <div className="fixed bottom-10 lg:bottom-5 px-6 mb-2 w-full max-w-screen-2xl">
           <div className="p-2 box-border mt-8  rounded-full bg-[#252836] flex items-center">
             <div id="icon-more">
               <MoreCircle filled primaryColor="#666872" />

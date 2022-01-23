@@ -2,6 +2,8 @@ import React, { ReactElement } from "react";
 import Image from "next/image";
 import clsx from "clsx";
 import Link from "next/link";
+import useBlurData from "utils/useBlurData"
+import numberReadable from "utils/numberReadable";
 
 interface Props {
   title: string;
@@ -21,9 +23,11 @@ export default function BannerCard({
   type = "big",
   ...props
 }: Props): ReactElement {
+
+  const dataBlur=useBlurData(725,366)
   return (
     <Link href={"/video"} aria-label="open video">
-      <div className="w-full h-[230px] max-h-[250px] relative rounded-xl text-xl overflow-hidden lg:min-h-[350px] lg:max-h-[350px] hover:cursor-pointer">
+      <div className="w-full h-[230px]  md:h-[400px] relative rounded-xl text-xl overflow-hidden lg:min-h-[350px] lg:max-h-[350px] hover:cursor-pointer">
         <div
           className={clsx(
             "absolute w-full object-cover lg:object-none  object-left-top top-0 bottom-0 z-0 min-h-[500px]",
@@ -31,11 +35,14 @@ export default function BannerCard({
           )}
         >
           <Image
+            loading="eager"
             layout="fill"
             src={props.videoThumb}
             alt="big"
             objectFit="cover"
             objectPosition={"left top"}
+            placeholder="blur"
+            blurDataURL={dataBlur}
           />
         </div>
 
@@ -104,7 +111,7 @@ export default function BannerCard({
               <h3 className="font-medium text-sm">{props.person.name}</h3>
               <p className="text-xs opacity-80">
                 <span className="hidden lg:inline">
-                  {props.person.views} views .
+                  {numberReadable(props.person.views)} views .
                 </span>
                 <span> {props.person.uploaded_at}</span>
               </p>

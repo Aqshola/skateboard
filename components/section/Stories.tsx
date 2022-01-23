@@ -14,8 +14,8 @@ export default function Stories(): ReactElement {
         // onSlideChange={() => console.log("slide change")}
         // onSwiper={(swiper) => console.log(swiper)}
       >
-        {Person.map(person=>(
-        <SwiperSlide>
+        {Person.map((person,i)=>(
+        <SwiperSlide key={i+"stories"}>
           <Story img={person.img}  watched={person.story.watched} verified={person.verified}/>
         </SwiperSlide>
         ))}

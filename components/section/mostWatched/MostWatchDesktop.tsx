@@ -1,6 +1,5 @@
 import React, { ReactElement } from "react";
 import DiscoverCard from "components/Card/DiscoverCard";
-import Person from "data/Uploader";
 import Video from "data/Video";
 
 export default function MostWatchDesktop(): ReactElement {
@@ -9,9 +8,10 @@ export default function MostWatchDesktop(): ReactElement {
     <div className="mt-16 hidden lg:block">
       <h1 className="font-medium text-3xl text-white">Most Watched</h1>
       <div className="grid grid-cols-12 gap-5 mt-7">
-        {Video.slice(2,Video.length).map((video) => (
+        {Video.slice(2,Video.length).map((video,i) => (
           <div className="col-span-3 ">
             <DiscoverCard
+            key={"discover "+i}
               title={video.title}
               baseColor={video.thumb.baseColor}
               person={{

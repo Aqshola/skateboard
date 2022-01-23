@@ -1,7 +1,7 @@
 import React, { ReactElement } from "react";
 import { Notification, ChevronDown, Search } from "react-iconly";
 import Image from "next/image";
-import Link from "next/link"
+import Link from "next/link";
 
 export default function DesktopNav(): ReactElement {
   return (
@@ -36,7 +36,10 @@ export default function DesktopNav(): ReactElement {
               <p className="mr-1">Thomas</p>
               <ChevronDown primaryColor="#808191" />
             </div>
-            <Notification set="bold" primaryColor="#808191" />
+            <div className="relative">
+              <div className="w-3 h-3 absolute right-0  rounded-full block bg-[#EC5252] border-2 border-[#1F1D2B]"></div>
+              <Notification set="bold" primaryColor="#808191" />
+            </div>
           </div>
         </div>
       </div>

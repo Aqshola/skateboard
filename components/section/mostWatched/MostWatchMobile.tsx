@@ -14,11 +14,12 @@ export default function MostWatchMobile({}: Props): ReactElement {
     <div className="w-full mt-8 lg:hidden">
       <h1 className="mb-5 text-white font-semibold">Most Watched</h1>
       <Swiper spaceBetween={14} slidesPerView={1.07}>
-        {videoList.map((video) => (
-          <SwiperSlide>
+        {videoList.map((video,i) => (
+          <SwiperSlide key={i+"mobilewrapper"}>
             <div className="flex flex-col gap-6">
-              {video.map((child) => (
+              {video.map((child,j) => (
                 <DiscoverCardMobile
+                key={j+'mobilevideo'}
                   title={child.title}
                   viewCount={child.views}
                   uploader={child.person.name}
