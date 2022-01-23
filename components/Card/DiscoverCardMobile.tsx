@@ -23,7 +23,7 @@ export default function DiscoverCardMobile({
   const blurData=useBlurData(120,93)
   return (
     <Link href={"/video"} aria-label="open video">
-    <div className="grid grid-cols-3 gap-3">
+    <div className="grid grid-cols-3 gap-3 cursor-pointer">
       <div className="col-span-1  h-24 relative">
         <Image
           src={img}

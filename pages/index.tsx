@@ -7,14 +7,20 @@ import DiscoverSection from "components/section/DiscoverSection";
 import MostWatchedSection from "components/section/MostWatchedSection";
 import BottomNav from "components/navbar/BottomNav";
 import Stories from "components/section/Stories";
+import NextHead from "next/head"
+
 
 export default function Home() {
   return (
+    <>
+    <NextHead>
+      <title>Sketboard | Homepage</title>
+      <meta name="description" content="Website for looking skateboard related content" />
+    </NextHead>
     <Layout>
       <div className="col-span-12">
         <Stories />
       </div>
-      
       <div className="col-span-2 lg:block hidden sticky  top-0  pl-6 lg:px-6">
         <SideBar />
       </div>
@@ -29,5 +35,6 @@ export default function Home() {
       </div>
       
     </Layout>
+    </>
   );
 }

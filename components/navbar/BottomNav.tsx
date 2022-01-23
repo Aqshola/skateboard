@@ -2,9 +2,8 @@ import BottomLinkNav from "components/sidebar/BottomLinkNav";
 import React, { ReactElement } from "react";
 import { Home, Video, Bookmark, Category } from "react-iconly";
 
-interface Props {}
 
-export default function BottomNav({}: Props): ReactElement {
+export default function BottomNav(): ReactElement {
   return (
     <nav className="p-5 pt-3 justify-between lg:hidden bg-[#252836] flex z-50">
       <BottomLinkNav label="Discover" Logo={Home} url="#" active={true} />
