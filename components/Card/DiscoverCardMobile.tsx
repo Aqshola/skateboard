@@ -1,5 +1,6 @@
 import React, { ReactElement } from "react";
 import Image from "next/image";
+import Link from "next/link"
 
 interface Props {
   title: string;
@@ -17,14 +18,16 @@ export default function DiscoverCardMobile({
   img,
 }: Props): ReactElement {
   return (
+    <Link href={"/video"} aria-label="open video">
     <div className="grid grid-cols-3 gap-3">
-      <div className="col-span-1 relative">
+      <div className="col-span-1  h-24 relative">
         <Image
           src={img}
           alt="thumb"
           className="rounded-xl"
           layout="fill"
           objectFit="cover"
+          objectPosition={"center left"}
         />
       </div>
       <div className="col-span-2 col-start-2 flex flex-col gap-2 text-white tracking-[0.3px]">
@@ -35,5 +38,6 @@ export default function DiscoverCardMobile({
         </p>
       </div>
     </div>
+    </Link>
   );
 }

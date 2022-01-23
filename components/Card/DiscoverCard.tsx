@@ -1,5 +1,6 @@
 import React, { ReactElement } from "react";
 import Image from "next/image";
+import Link from "next/link"
 
 interface Props {
   title: string;
@@ -17,7 +18,8 @@ interface Props {
 
 export default function DiscoverCard({...props}: Props): ReactElement {
   return (
-    <div className="bg-[#252836] flex w-full flex-col rounded-xl overflow-hidden">
+    <Link href={"/video"} aria-label="open video">
+    <div className="bg-[#252836] flex w-full flex-col rounded-xl overflow-hidden cursor-pointer">
       <div className="relative h-[160px] w-full">
         <div className="w-max rounded-full py-1 px-2 bg-[#242730] bg-opacity-20 absolute top-0 right-0 mt-2 mr-2 z-20 text-white text-[10px] ">
           {props.videoLength}
@@ -59,5 +61,6 @@ export default function DiscoverCard({...props}: Props): ReactElement {
         </div>
       </div>
     </div>
+    </Link>
   );
 }
