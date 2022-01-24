@@ -22,12 +22,13 @@ export default function Video({}: Props): ReactElement {
           {/* 
           Video Player
       */}
-          <div className="z-10 w-full h-[261px] lg:h-[500px]  flex justify-center px-6 rounded-3xl overflow-hidden relative">
+          <div className="z-10 w-[95%] mx-auto h-[261px] lg:h-[500px]  rounded-2xl flex justify-center  overflow-hidden relative">
             <ReactPlayer
               width={"100%"}
               height={"100%"}
               url="https://youtu.be/h9wualcJuE4"
               controls={false}
+              className="react-player"
             />
             <div id="control-video"></div>
           </div>

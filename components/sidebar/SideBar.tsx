@@ -25,6 +25,22 @@ const LinkList = [
     label: "Bookmark",
     logo: Wallet,
   },
+  {
+    label: "Live Stream",
+    logo: Home,
+  },
+  {
+    label: "Tutorial",
+    logo: ArrowRight,
+  },
+  {
+    label: "Competition",
+    logo: Download,
+  },
+  {
+    label: "Community",
+    logo: Paper,
+  },
 ];
 
 export default function SideBar({}: Props): ReactElement {
@@ -33,18 +49,33 @@ export default function SideBar({}: Props): ReactElement {
     <>
       <h2 className="font-semibold  text-sm text-[#808191] mb-6">MENU</h2>
       <div className="flex flex-col mt-6 gap-8">
-        {LinkList.map((list) => (
-          <LinkSideBar label={list.label} active={list.label===activeLink} Logo={list.logo} eventClick={()=>{setactiveLink(list.label)}}/>
+        {LinkList.slice(0, 5).map((list, i) => (
+          <LinkSideBar
+            key={i + "link1"}
+            label={list.label}
+            active={list.label === activeLink}
+            Logo={list.logo}
+            eventClick={() => {
+              setactiveLink(list.label);
+            }}
+          />
         ))}
       </div>
 
       <span className="h-[1px] mt-12 w-36 block bg-[#34373C]" />
       <h2 className="font-semibold text-[#808191] text-sm mt-12">Category</h2>
       <div className="flex flex-col mt-6 gap-8">
-        <LinkSideBar label="Live Stream" Logo={Home} />
-        <LinkSideBar label="Tutorial" Logo={ArrowRight} />
-        <LinkSideBar label="Competition" Logo={Download} />
-        <LinkSideBar label="Community" Logo={Paper} />
+        {LinkList.slice(5, 9).map((list, i) => (
+          <LinkSideBar
+            key={i + "link2"}
+            label={list.label}
+            active={list.label === activeLink}
+            Logo={list.logo}
+            eventClick={() => {
+              setactiveLink(list.label);
+            }}
+          />
+        ))}
       </div>
     </>
   );
