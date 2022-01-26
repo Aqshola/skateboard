@@ -1,15 +1,16 @@
-import React, { ReactElement } from "react";
+import React, { ReactElement, useState } from "react";
 import { ArrowLeft, Heart } from "react-iconly";
 import Image from "next/image";
-import {useRouter} from "next/router"
+import { useRouter } from "next/router";
+import { AnimatePresence, LayoutGroup, motion } from "framer-motion";
+import clsx from "clsx";
 
-interface Props {}
-
-export default function NavVideo({}: Props): ReactElement {
-  const route=useRouter();
+export default function NavVideo(): ReactElement {
+  const route = useRouter();
+  const [like, setlike] = useState<boolean>(false);
   return (
     <div className="px-6 py-7 flex lg:hidden items-center">
-      <button aria-label="back" className="mr-6" onClick={()=>route.back()}>
+      <button aria-label="back" className="mr-6" onClick={() => route.back()}>
         <ArrowLeft primaryColor="#808191" />
       </button>
       <div className="flex-grow flex items-center">
@@ -29,13 +30,43 @@ export default function NavVideo({}: Props): ReactElement {
           <p className="text-xs  text-[#808191]">1,980,893 subscribers</p>
         </div>
       </div>
-      <button
-        className="w-7 h-7 rounded-full p-1
-        flex justify-center items-center
-      bg-[#EA5F5F]"
-      >
-        <Heart filled primaryColor="white" size="small" set="bold" />
-      </button>
+
+      <div className="relative  w-7 h-7 flex items-center justify-center">
+        <div className="relative flex justify-center items-center">
+          <AnimatePresence>
+            {like && (
+              <motion.div
+                initial={{ scale: 0 }}
+                animate={{ scale: 1 }}
+                exit={{ scale: 0 }}
+                className="rounded-full w-7 h-7 p-1 bg-[#EA5F5F] absolute z-0"
+              ></motion.div>
+            )}
+          </AnimatePresence>
+          <button
+            onClick={() => setlike(!like)}
+            className={
+              clsx(
+                `rounded-full 
+                  z-10 relative
+                  flex justify-center items-center
+                  transition-all transform 
+                      `,
+                   !like && ["text-[#EA5F5F]"],
+                   like && ["text-white"]   
+                  )}
+          >
+            <Heart
+              filled
+              style={{
+                fill: "currentcolor",
+              }}
+              size="small"
+              set="bold"
+            />
+          </button>
+        </div>
+      </div>
     </div>
   );
 }

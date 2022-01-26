@@ -1,4 +1,4 @@
-import DiscoverCardMobile from "components/Card/DiscoverCardMobile";
+import WatchMobCard from "components/Card/MostWatch/WatchMobCard";
 import React, { ReactElement } from "react";
 import { Swiper, SwiperSlide } from "swiper/react";
 import "swiper/css";
@@ -18,7 +18,7 @@ export default function MostWatchMobile({}: Props): ReactElement {
           <SwiperSlide key={i+"mobilewrapper"}>
             <div className="flex flex-col gap-6">
               {video.map((child,j) => (
-                <DiscoverCardMobile
+                <WatchMobCard
                 key={j+'mobilevideo'}
                   title={child.title}
                   viewCount={child.views}

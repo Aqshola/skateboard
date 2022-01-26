@@ -2,11 +2,11 @@ import Head from "next/head";
 
 import Layout from "components/Layout";
 
-import SideBar from "components/sidebar/SideBar";
-import DiscoverSection from "components/section/DiscoverSection";
-import MostWatchedSection from "components/section/MostWatchedSection";
-import BottomNav from "components/navbar/BottomNav";
-import Stories from "components/section/Stories";
+import SideBar from "components/Sidebar/SideBar";
+import DiscoverSection from "components/Section/DiscoverSection";
+import MostWatchedSection from "components/Section/MostWatchedSection";
+import BottomNav from "components/Navbar/BottomNav";
+import Stories from "components/Section/Stories";
 import NextHead from "next/head"
 
 

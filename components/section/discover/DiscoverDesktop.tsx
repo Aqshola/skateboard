@@ -1,5 +1,5 @@
 import React, { ReactElement } from "react";
-import BannerCard from "components/Card/BannerCard";
+import DiscoverCard from "components/Card/Discover/DiscoverCard";
 import Video from "data/Video";
 
 
@@ -12,7 +12,7 @@ export default function DiscoverDesktop(): ReactElement {
       </h1>
       <div className="grid-cols-12 mt-7 gap-5 hidden lg:grid">
         <div className="col-span-8">
-          <BannerCard
+          <DiscoverCard
             title={Video[0].title}
             videoThumb={Video[0].thumb.img}
             videoLength={Video[0].length}
@@ -26,7 +26,7 @@ export default function DiscoverDesktop(): ReactElement {
           />
         </div>
         <div className="col-span-4">
-        <BannerCard
+        <DiscoverCard
             title={Video[1].title}
             videoThumb={Video[1].thumb.img}
             videoLength={Video[1].length}

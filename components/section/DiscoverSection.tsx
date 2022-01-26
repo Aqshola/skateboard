@@ -1,6 +1,6 @@
 import React, { ReactElement } from "react";
-import DiscoverDesktop from "./discover/DiscoverDesktop";
-import DiscoverMobile from "./discover/DiscoverMobile";
+import DiscoverDesktop from "./Discover/DiscoverDesktop";
+import DiscoverMobile from "./Discover/DiscoverMobile";
 
 
 interface Props {}

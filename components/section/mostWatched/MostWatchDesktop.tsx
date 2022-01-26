@@ -1,5 +1,5 @@
 import React, { ReactElement } from "react";
-import DiscoverCard from "components/Card/DiscoverCard";
+import WatchDeskCard from "components/Card/MostWatch/WatchDeskCard";
 import Video from "data/Video";
 
 export default function MostWatchDesktop(): ReactElement {
@@ -10,7 +10,7 @@ export default function MostWatchDesktop(): ReactElement {
       <div className="grid grid-cols-12 gap-5 mt-7">
         {Video.slice(2,Video.length).map((video,i) => (
           <div className="col-span-3 ">
-            <DiscoverCard
+            <WatchDeskCard
             key={"discover "+i}
               title={video.title}
               baseColor={video.thumb.baseColor}

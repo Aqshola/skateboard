@@ -1,7 +1,7 @@
 import React, { ReactElement } from "react";
 import { Swiper, SwiperSlide } from "swiper/react";
 import "swiper/css";
-import BannerCard from "components/Card/BannerCard";
+import DiscoverCard from "components/Card/Discover/DiscoverCard";
 import Video from "data/Video";
 
 
@@ -12,7 +12,7 @@ export default function DiscoverMobile(): ReactElement {
         {Video.slice(0, 2).map((video, i) => (
           <SwiperSlide>
             <div className="w-full">
-              <BannerCard
+              <DiscoverCard
                 key={i + "mobile discover"}
                 title={video.title}
                 videoThumb={video.thumb.img}

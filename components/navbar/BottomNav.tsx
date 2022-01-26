@@ -1,4 +1,4 @@
-import BottomLinkNav from "components/sidebar/BottomLinkNav";
+import BottomLinkNav from "components/Sidebar/BottomLinkNav";
 import React, { ReactElement } from "react";
 import { Home, Video, Bookmark, Category } from "react-iconly";
 
