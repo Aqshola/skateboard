@@ -23,6 +23,7 @@ export default function MobileNav({}: Props): ReactElement {
           }
         />
         <button
+          aria-label="Search"
           className="ml-auto"
           onClick={() => {
             setsearch(!search);

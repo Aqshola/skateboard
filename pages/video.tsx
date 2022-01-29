@@ -8,8 +8,6 @@ import CommentSection from "components/Section/CommentSection";
 interface Props {}
 
 export default function Video({}: Props): ReactElement {
-  const [showDesc, setshowDesc] = useState<boolean>(false);
-
   return (
     <>
       <NextHead>

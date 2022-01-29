@@ -9,14 +9,11 @@
   body {
     @apply font-poppins bg-[#1F1D2B];
     scroll-behavior: smooth;
-    
   }
   p {
     @apply leading-normal;
   }
 }
-
-
 
 .react-player {
   position: absolute;
@@ -24,4 +21,25 @@
   left: 0;
   border-radius: 16px;
   overflow: hidden;
+}
+
+/* scroll bar */
+::-webkit-scrollbar {
+  width: 5px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+  background-color: #353340;
+  border-radius: 10px;
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+  background: black;
 }
