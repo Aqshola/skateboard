@@ -31,7 +31,7 @@ export default function BannerCard({
         <div className="w-full h-[230px]  md:h-[400px] relative rounded-xl text-xl overflow-hidden lg:min-h-[350px] lg:max-h-[350px] hover:cursor-pointer">
           <div
             className={clsx(
-              "absolute w-full object-cover lg:object-none  object-left-top top-0 bottom-0 z-0 min-h-[500px]",
+              "relative w-full object-cover lg:object-none  object-left-top top-0 bottom-0 z-0 min-h-[500px]",
               type === "small" && ["order-2"]
             )}
           >
@@ -47,7 +47,7 @@ export default function BannerCard({
             />
           </div>
 
-          <div className={clsx("relative z-10 w-full flex flex-col h-full")}>
+          <div className={clsx("absolute top-0 bottom-0 z-10 w-full flex flex-col h-full")}>
             <h2 className="px-6 lg:px-10  pt-10 w-[230px] lg:w-[310px] font-semibold  text-lg  lg:text-3xl text-white">
               {props.title}
             </h2>
