@@ -5,26 +5,27 @@ import clsx from "clsx";
 interface Props {
   Logo: React.FC<IconProps>;
   label: string;
-  url: string;
+  onClick:()=>void
   active?: boolean;
+
 }
 
 export default function BottomLinkNav({
   Logo,
   label,
-  url,
   active = false,
+  onClick
 }: Props): ReactElement {
   return (
-    <a
-      href={url}
+    <button
+      onClick={onClick}
       className={clsx(
-        "flex flex-col items-center ",
+        "flex flex-col items-center transition-all",
         active && ["text-white"],
         !active && [" text-[#808191]"]
       )}
     >
-      <div className={active ? "text-[#6C5ECF] " : "text-[#808191]"}>
+      <div className={"transition-all "+ (active ? "text-[#6C5ECF] " : "text-[#808191]")}>
         <Logo
           filled
           style={{
@@ -33,6 +34,6 @@ export default function BottomLinkNav({
         />
       </div>
       <span className="mt-2 tracking-wider font-medium text-xs">{label}</span>
-    </a>
+    </button>
   );
 }

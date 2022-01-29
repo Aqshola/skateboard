@@ -23,12 +23,13 @@ export default function DesktopNav(): ReactElement {
           <div className="col-span-1 col-start-6 flex items-center gap-4">
             <div className="w-8 h-8 rounded-full">
               <Image
-                src="/image/profile/profile1.png"
+                src="/image/person/image 2.png"
                 height={32}
                 width={32}
                 layout="responsive"
                 objectFit="cover"
                 alt="profile"
+                className="rounded-full"
               />
             </div>
 

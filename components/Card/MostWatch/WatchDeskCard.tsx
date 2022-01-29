@@ -2,6 +2,7 @@ import React, { ReactElement } from "react";
 import Image from "next/image";
 import Link from "next/link";
 import numberReadable from "utils/numberReadable";
+import useBlurData from "utils/useBlurData"
 
 interface Props {
   title: string;
@@ -18,6 +19,7 @@ interface Props {
 }
 
 export default function DiscoverCard({ ...props }: Props): ReactElement {
+  const blurData=useBlurData(120,93)
   return (
     <Link href={"/video"} aria-label="open video">
       <div className="bg-[#252836] flex w-full flex-col rounded-xl overflow-hidden cursor-pointer">
@@ -60,6 +62,8 @@ export default function DiscoverCard({ ...props }: Props): ReactElement {
                 layout="fill"
                 alt="profile"
                 objectFit="cover"
+                placeholder="blur"
+                blurDataURL={blurData}
               />
             </div>
           </div>
