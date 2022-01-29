@@ -18,19 +18,12 @@ export default function Video({}: Props): ReactElement {
       </NextHead>
       <Layout>
         <div className="col-span-12 relative min-h-screen">
-          
-
           <Player/>
-          
           <VideoDesc/>
-
-          
           <div className="pl-6">
             <hr className="opacity-5" />
           </div>
-          
           <CommentSection/>
-          
         </div>
       </Layout>
     </>
