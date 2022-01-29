@@ -7,7 +7,7 @@
 @layer base {
   html,
   body {
-    @apply font-poppins bg-white dark:bg-[#1F1D2B];
+    @apply font-poppins bg-[#1F1D2B];
     scroll-behavior: smooth;
     
   }
