@@ -24,13 +24,11 @@ export default function Player() {
   };
 
   const handleMouseOut = () => {
-    setTimeout(() => {
       setseek(false);
-    }, 2000);
   };
   const handleFullscreen = () => {
     if (screenfull.isEnabled) {
-      screenfull.request(playerContainer.current);
+      screenfull.toggle(playerContainer.current);
     }
   };
 
