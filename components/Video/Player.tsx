@@ -10,12 +10,12 @@ import "rc-slider/assets/index.css";
 export default function Player() {
   const [played, setplayed] = useState<number>(0);
   const [playVid, setplayVid] = useState<boolean>(false);
-  const player = useRef();
-  const playerContainer = useRef<any|null>(null);
+  const player = useRef<any>();
+  const playerContainer = useRef<HTMLDivElement>(null);
   const [seek, setseek] = useState<boolean>(true);
 
-  const timePlayed = player.current? player.current.getCurrentTime() : 0;
-  const durationPlay = player.current? player.current.getDuration() : 0;
+  const timePlayed =  player.current.getCurrentTime() || 0;
+  const durationPlay =  player.current.getDuration() || 0;
 
   const handleMouseIn = () => {
     setseek(true);
