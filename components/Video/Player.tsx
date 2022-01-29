@@ -25,7 +25,9 @@ export default function Player() {
     setseek(false);
   };
   const handleFullscreen = () => {
-    screenfull.toggle(playerContainer.current);
+    if(screenfull.isEnabled){
+      screenfull.request(playerContainer.current);
+    }
   };
 
   const handleSeek = (value: number) => {
