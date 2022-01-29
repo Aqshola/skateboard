@@ -11,9 +11,8 @@ export default function Navbar({}: Props): ReactElement {
 
   return (
     <>
-    <DesktopNav />
-    {route.pathname === "/video" ? <NavVideo /> : <MobileNav />}
+      <DesktopNav />
+      {route.pathname === "/video" ? <NavVideo /> : <MobileNav />}
     </>
-    
   );
 }

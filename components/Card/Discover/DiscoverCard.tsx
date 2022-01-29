@@ -28,10 +28,10 @@ export default function BannerCard({
   return (
     <>
       <Link href={"/video"} aria-label="open video">
-        <div className="w-full h-[230px]  md:h-[400px] relative rounded-xl text-xl overflow-hidden lg:min-h-[350px] lg:max-h-[350px] hover:cursor-pointer">
+        <div className="relative h-[230px]  w-full overflow-hidden rounded-xl text-xl hover:cursor-pointer md:h-[400px] lg:max-h-[350px] lg:min-h-[350px]">
           <div
             className={clsx(
-              "relative w-full object-cover lg:object-none  object-left-top top-0 bottom-0 z-0 min-h-[500px]",
+              "relative top-0 bottom-0 z-0  min-h-[500px] w-full object-cover object-left-top lg:object-none",
               type === "small" && ["order-2"]
             )}
           >
@@ -47,14 +47,18 @@ export default function BannerCard({
             />
           </div>
 
-          <div className={clsx("absolute top-0 bottom-0 z-10 w-full flex flex-col h-full")}>
-            <h2 className="px-6 lg:px-10  pt-10 w-[230px] lg:w-[310px] font-semibold  text-lg  lg:text-3xl text-white">
+          <div
+            className={clsx(
+              "absolute top-0 bottom-0 z-10 flex h-full w-full flex-col"
+            )}
+          >
+            <h2 className="w-[230px] px-6  pt-10 text-lg font-semibold text-white  lg:w-[310px]  lg:px-10 lg:text-3xl">
               {props.title}
             </h2>
 
             <div
               className={clsx(
-                "flex px-6 lg:pl-10 w-max  relative flex-wrap flex-row  mt-7",
+                "relative mt-7 flex w-max  flex-row flex-wrap px-6  lg:pl-10",
                 type === "small" && ["flex-col"],
                 type === "big" && ["items-center"]
               )}
@@ -62,7 +66,7 @@ export default function BannerCard({
               {/**Image Section */}
               <div
                 className={clsx(
-                  "hidden box-border p-1 border-2 rounded-full border-white border-opacity-70  w-14 h-14 justify-center items-center relative  mr-3 lg:block",
+                  "relative mr-3 box-border hidden h-14 w-14 items-center  justify-center rounded-full border-2 border-white border-opacity-70  p-1 lg:block",
                   type === "small" && ["order-2 mt-2"]
                 )}
               >
@@ -73,24 +77,24 @@ export default function BannerCard({
                   objectFit="cover"
                   width={54}
                   height={54}
-                  className="rounded-full overflow-hidden"
+                  className="overflow-hidden rounded-full"
                 />
 
                 {/** Verified Section*/}
                 <div
-                  className="absolute p-1 rounded-full  -right-2 -bottom-1"
+                  className="absolute -right-2 -bottom-1  rounded-full p-1"
                   style={{
                     backgroundColor: props.baseColor,
                   }}
                 >
-                  <div className=" bg-white  box-border p-1 rounded-full">
+                  <div className=" box-border  rounded-full bg-white p-1">
                     <svg
                       width="6"
                       height="5"
                       viewBox="0 0 6 5"
                       fill="none"
                       xmlns="http://www.w3.org/2000/svg"
-                      className="stroke-current text-[#40b1c3] w-2 h-2"
+                      className="h-2 w-2 stroke-current text-[#40b1c3]"
                       style={{
                         color: props.baseColor,
                       }}
@@ -109,7 +113,7 @@ export default function BannerCard({
 
               {/** User Info Section*/}
               <div className="text-white ">
-                <h3 className="font-medium text-sm">{props.person.name}</h3>
+                <h3 className="text-sm font-medium">{props.person.name}</h3>
                 <p className="text-xs opacity-80">
                   <span className="hidden lg:inline">
                     {numberReadable(props.person.views)} views .
@@ -119,7 +123,7 @@ export default function BannerCard({
               </div>
             </div>
 
-            <p className="hidden lg:block mr-10 absolute bottom-0 font-medium text-[10px] bg-[#242730] bg-opacity-50 rounded-3xl py-1 px-2 text-white w-max self-end mb-5">
+            <p className="absolute bottom-0 mr-10 mb-5 hidden w-max self-end rounded-3xl bg-[#242730] bg-opacity-50 py-1 px-2 text-[10px] font-medium text-white lg:block">
               {props.videoLength}
             </p>
           </div>

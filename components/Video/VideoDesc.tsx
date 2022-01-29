@@ -1,31 +1,31 @@
-import React,{useState} from "react";
+import React, { useState } from "react";
 import { AnimatePresence, motion } from "framer-motion";
 import clsx from "clsx";
 import {
-    Show,
-    ChevronDown,
-    Send,
-    Heart,
-    MoreCircle,
-    Play,
-    VolumeUp,
-    Filter,
-    Category,
-  } from "react-iconly";
+  Show,
+  ChevronDown,
+  Send,
+  Heart,
+  MoreCircle,
+  Play,
+  VolumeUp,
+  Filter,
+  Category,
+} from "react-iconly";
 
 type Props = {};
 
 export default function VideoDesc({}: Props) {
-    const [showDesc, setshowDesc] = useState<boolean>(false);
+  const [showDesc, setshowDesc] = useState<boolean>(false);
   return (
-    <div className="pb-6 px-6 mt-6 text-white">
+    <div className="mt-6 px-6 pb-6 text-white">
       <div className="flex items-start justify-between">
-        <h1 className="text-xl lg:text-2xl w-72 lg:w-full">
+        <h1 className="w-72 text-xl lg:w-full lg:text-2xl">
           How to ride your skateboard and Basic Equipment
         </h1>
         <button
           className={clsx(
-            "w-max flex justify-center items-center bg-white bg-opacity-10 rounded-full p-1 transition-all transform ",
+            "flex w-max transform items-center justify-center rounded-full bg-white bg-opacity-10 p-1 transition-all ",
             showDesc && ["rotate-180"]
           )}
           onClick={() => setshowDesc(!showDesc)}
@@ -35,10 +35,10 @@ export default function VideoDesc({}: Props) {
       </div>
 
       <div className="mt-4 flex gap-6">
-        <div id="views" className="flex gap-1 items-center">
+        <div id="views" className="flex items-center gap-1">
           <Show primaryColor="#808191" size={"small"} />
 
-          <p className="text-[#808191] text-xs">125.908 views</p>
+          <p className="text-xs text-[#808191]">125.908 views</p>
         </div>
         <div id="likes" className="flex items-center gap-1">
           <Heart primaryColor="#808191" size={"small"} />
@@ -60,7 +60,7 @@ export default function VideoDesc({}: Props) {
               height: 0,
               opacity: 0,
             }}
-            className="text-xs font-extralight leading-4 tracking-wide mt-2"
+            className="mt-2 text-xs font-extralight leading-4 tracking-wide"
           >
             Lorem ipsum dolor sit amet consectetur adipisicing elit. Molestiae
             soluta laboriosam nulla provident modi recusandae quod obcaecati

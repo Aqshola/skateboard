@@ -5,9 +5,8 @@ import NextHead from "next/head";
 import Player from "components/Video/Player";
 import VideoDesc from "components/Video/VideoDesc";
 import CommentSection from "components/Section/CommentSection";
-interface Props {}
 
-export default function Video({}: Props): ReactElement {
+export default function Video(): ReactElement {
   return (
     <>
       <NextHead>
@@ -15,7 +14,7 @@ export default function Video({}: Props): ReactElement {
         <meta name="description" content="Video about skateboard related" />
       </NextHead>
       <Layout>
-        <div className="col-span-12 relative min-h-screen">
+        <div className="relative col-span-12 min-h-screen">
           <Player />
           <VideoDesc />
           <div className="pl-6">

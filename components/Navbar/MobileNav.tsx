@@ -6,9 +6,9 @@ interface Props {}
 export default function MobileNav({}: Props): ReactElement {
   const [search, setsearch] = useState<boolean>(false);
   return (
-    <div className="px-6 py-7 flex lg:hidden gap-1">
+    <div className="flex gap-1 px-6 py-7 lg:hidden">
       <h1 className="flex-grow">
-        <a href="#" className="text-white font-medium text-xl w-max">
+        <a href="#" className="w-max text-xl font-medium text-white">
           Discover
         </a>
       </h1>
@@ -18,8 +18,8 @@ export default function MobileNav({}: Props): ReactElement {
           type="text"
           placeholder="search"
           className={
-            "bg-transparent placeholder:text-xs text-xs transition-all text-white " +
-            (search ? " w-full " : "w-0 overflow-hidden invisible")
+            "bg-transparent text-xs text-white transition-all placeholder:text-xs " +
+            (search ? " w-full " : "invisible w-0 overflow-hidden")
           }
         />
         <button

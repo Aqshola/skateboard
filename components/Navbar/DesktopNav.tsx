@@ -6,22 +6,22 @@ import Link from "next/link";
 export default function DesktopNav(): ReactElement {
   return (
     <>
-      <div className="hidden lg:grid grid-cols-12 pl-6 md:px-6 py-7 max-w-screen-2xl items-center">
-        <div className="col-span-2 text-white text-xl flex ">
+      <div className="hidden max-w-screen-2xl grid-cols-12 items-center py-7 pl-6 md:px-6 lg:grid">
+        <div className="col-span-2 flex text-xl text-white ">
           <Link href="/">skateboard</Link>
         </div>
-        <div className="col-start-3 col-span-10 text-white grid grid-cols-6">
-          <div className="col-span-4 bg-white rounded-lg bg-opacity-10 flex items-center py-3 px-3 ">
+        <div className="col-span-10 col-start-3 grid grid-cols-6 text-white">
+          <div className="col-span-4 flex items-center rounded-lg bg-white bg-opacity-10 py-3 px-3 ">
             <input
               type="search"
               placeholder="Search"
-              className=" rounded-sm border-none border bg-transparent  w-full text-xs"
+              className=" w-full rounded-sm border border-none  bg-transparent text-xs"
             />
             <Search size={"small"} />
           </div>
 
           <div className="col-span-1 col-start-6 flex items-center gap-4">
-            <div className="w-8 h-8 rounded-full">
+            <div className="h-8 w-8 rounded-full">
               <Image
                 src="/image/person/image 2.png"
                 height={32}
@@ -38,7 +38,7 @@ export default function DesktopNav(): ReactElement {
               <ChevronDown primaryColor="#808191" />
             </div>
             <div className="relative">
-              <div className="w-3 h-3 absolute right-0  rounded-full block bg-[#EC5252] border-2 border-[#1F1D2B]"></div>
+              <div className="absolute right-0 block h-3  w-3 rounded-full border-2 border-[#1F1D2B] bg-[#EC5252]"></div>
               <Notification set="bold" primaryColor="#808191" />
             </div>
           </div>

@@ -1,5 +1,6 @@
 import React, { useRef, useState } from "react";
 import ReactPlayer from "react-player/youtube";
+
 import screenfull from "screenfull";
 import { Play, VolumeUp, Filter, Category, VolumeOff } from "react-iconly";
 import { AnimatePresence, motion } from "framer-motion";
@@ -9,11 +10,12 @@ import "rc-slider/assets/index.css";
 export default function Player() {
   const [played, setplayed] = useState<number>(0);
   const [playVid, setplayVid] = useState<boolean>(false);
-  const playerContainer = useRef<HTMLDivElement>(null);
   const [seek, setseek] = useState<boolean>(true);
   const [volume, setvolume] = useState<number>(100);
 
-  const player = useRef<any>();
+  const playerContainer = useRef<HTMLDivElement>(null);
+  const player = useRef<any>(null);
+
   const timePlayed = player.current ? player.current.getCurrentTime() : 0;
   const durationPlay = player.current ? player.current.getDuration() : 0;
 
@@ -81,7 +83,7 @@ export default function Player() {
       ref={playerContainer}
       onMouseEnter={handleMouseIn}
       onMouseLeave={handleMouseOut}
-      className="z-10 w-[95%] mx-auto h-[261px]  md:h-[500px]  rounded-2xl flex justify-center  overflow-hidden relative"
+      className="relative z-10 mx-auto flex  h-[261px]  w-[95%] justify-center overflow-hidden  rounded-2xl md:h-[500px]"
     >
       <ReactPlayer
         ref={player}
@@ -90,7 +92,7 @@ export default function Player() {
         }}
         width={"100%"}
         height={"100%"}
-        url="https://youtu.be/h9wualcJuE4"
+        url="https://youtu.be/OOg-4mtA3Zo"
         controls={false}
         className="react-player"
         volume={volume}
@@ -120,10 +122,10 @@ export default function Player() {
               translateY: 100,
             }}
             id="control-video"
-            className="z-50 absolute bottom-0 flex flex-col w-full right-0 left-0 
+            className="absolute bottom-0 right-0 left-0 z-50 flex w-full flex-col 
             "
           >
-            <div className="w-full px-2 p-0 h-fit ">
+            <div className="h-fit w-full p-0 px-2 ">
               <Slider
                 min={0}
                 max={100}
@@ -141,12 +143,12 @@ export default function Player() {
               />
             </div>
 
-            <div className="bg-[#252836] w-full flex items-center p-1 px-2 lg:p-2">
+            <div className="flex w-full items-center bg-[#252836] p-1 px-2 lg:p-2">
               {/* Text and button Play */}
-              <div className="flex-grow relative">
+              <div className="relative flex-grow">
                 <p
                   className={
-                    "text-white px-2 transition-all absolute top-0" +
+                    "absolute top-0 px-2 text-white transition-all" +
                     (playVid
                       ? " visible opacity-100"
                       : " invisible opacity-0  ")
@@ -161,7 +163,7 @@ export default function Player() {
                     "transition-all" +
                     (playVid
                       ? " invisible w-0 overflow-hidden opacity-0"
-                      : " w-fit opacity-100 visible")
+                      : " visible w-fit opacity-100")
                   }
                   onClick={() => {
                     setplayVid(!playVid);
@@ -179,7 +181,7 @@ export default function Player() {
 
               {/* Other Button */}
               <div className="flex gap-7">
-                <div className="flex items-center transition-all group hover:gap-2">
+                <div className="group flex items-center transition-all hover:gap-2">
                   <button onClick={handleMute}>
                     {volume == 0 ? (
                       <VolumeOff
@@ -200,7 +202,7 @@ export default function Player() {
                     )}
                   </button>
 
-                  <div className="w-0 outline-hidden invisible opacity-0  group-hover:visible group-hover:opacity-100 group-hover:w-10 transition-all">
+                  <div className="invisible w-0 opacity-0 outline-hidden  transition-all group-hover:visible group-hover:w-10 group-hover:opacity-100">
                     <Slider
                       min={0}
                       max={100}

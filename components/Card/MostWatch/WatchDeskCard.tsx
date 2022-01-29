@@ -2,7 +2,7 @@ import React, { ReactElement } from "react";
 import Image from "next/image";
 import Link from "next/link";
 import numberReadable from "utils/numberReadable";
-import useBlurData from "utils/useBlurData"
+import useBlurData from "utils/useBlurData";
 
 interface Props {
   title: string;
@@ -19,12 +19,12 @@ interface Props {
 }
 
 export default function DiscoverCard({ ...props }: Props): ReactElement {
-  const blurData=useBlurData(120,93)
+  const blurData = useBlurData(120, 93);
   return (
     <Link href={"/video"} aria-label="open video">
-      <div className="bg-[#252836] flex w-full flex-col rounded-xl overflow-hidden cursor-pointer">
+      <div className="flex w-full cursor-pointer flex-col overflow-hidden rounded-xl bg-[#252836]">
         <div className="relative h-[160px] w-full">
-          <div className="w-max rounded-full py-1 px-2 bg-[#242730] bg-opacity-20 absolute top-0 right-0 mt-2 mr-2 z-20 text-white text-[10px] ">
+          <div className="absolute top-0 right-0 z-20 mt-2 mr-2 w-max rounded-full bg-[#242730] bg-opacity-20 py-1 px-2 text-[10px] text-white ">
             {props.videoLength}
           </div>
           <Image
@@ -34,18 +34,18 @@ export default function DiscoverCard({ ...props }: Props): ReactElement {
             objectFit="cover"
           />
         </div>
-        <div className="p-5 relative">
-          <div id="account name" className="flex gap-5 items-center">
-            <p className="text-[#B7B9D2] font-light text-sm ">
+        <div className="relative p-5">
+          <div id="account name" className="flex items-center gap-5">
+            <p className="text-sm font-light text-[#B7B9D2] ">
               {props.person.name}
             </p>
             <div
               id="circle"
-              className="w-2 h-2 block rounded-full bg-[#22B07D]"
+              className="block h-2 w-2 rounded-full bg-[#22B07D]"
             ></div>
           </div>
           <div id="video detail">
-            <h2 className="font-medium text-white mt-4 mb-3">{props.title}</h2>
+            <h2 className="mt-4 mb-3 font-medium text-white">{props.title}</h2>
             <p className="text-xs text-[#808191]">
               {numberReadable(props.person.views)} views •{" "}
               {props.person.uploaded_at} ago{" "}
@@ -54,9 +54,9 @@ export default function DiscoverCard({ ...props }: Props): ReactElement {
 
           <div
             id="profile-circle"
-            className="w-14 h-14 rounded-full overflow-hidden p-1 border border-white border-opacity-10 absolute top-0 right-0 -translate-y-7 mr-5"
+            className="absolute top-0 right-0 mr-5 h-14 w-14 -translate-y-7 overflow-hidden rounded-full border border-white border-opacity-10 p-1"
           >
-            <div className="w-full h-full flex relative rounded-full overflow-hidden">
+            <div className="relative flex h-full w-full overflow-hidden rounded-full">
               <Image
                 src={props.person.img}
                 layout="fill"

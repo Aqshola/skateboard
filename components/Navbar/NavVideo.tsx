@@ -9,11 +9,11 @@ export default function NavVideo(): ReactElement {
   const route = useRouter();
   const [like, setlike] = useState<boolean>(false);
   return (
-    <div className="px-6 py-7 flex lg:hidden items-center">
+    <div className="flex items-center px-6 py-7 lg:hidden">
       <button aria-label="back" className="mr-6" onClick={() => route.back()}>
         <ArrowLeft primaryColor="#808191" />
       </button>
-      <div className="flex-grow flex items-center">
+      <div className="flex flex-grow items-center">
         <Image
           src="/image/person/image 2.png"
           width={48}
@@ -24,37 +24,36 @@ export default function NavVideo(): ReactElement {
           className="rounded-full"
         />
         <div className="ml-2">
-          <h1 className="text-sm text-white font-medium tracking-[0.3px]">
+          <h1 className="text-sm font-medium tracking-[0.3px] text-white">
             Andy William
           </h1>
           <p className="text-xs  text-[#808191]">1,980,893 subscribers</p>
         </div>
       </div>
 
-      <div className="relative  w-7 h-7 flex items-center justify-center">
-        <div className="relative flex justify-center items-center">
+      <div className="relative  flex h-7 w-7 items-center justify-center">
+        <div className="relative flex items-center justify-center">
           <AnimatePresence>
             {like && (
               <motion.div
                 initial={{ scale: 0 }}
                 animate={{ scale: 1 }}
                 exit={{ scale: 0 }}
-                className="rounded-full w-7 h-7 p-1 bg-[#EA5F5F] absolute z-0"
+                className="absolute z-0 h-7 w-7 rounded-full bg-[#EA5F5F] p-1"
               ></motion.div>
             )}
           </AnimatePresence>
           <button
             onClick={() => setlike(!like)}
-            className={
-              clsx(
-                `rounded-full 
-                  z-10 relative
-                  flex justify-center items-center
-                  transition-all transform 
+            className={clsx(
+              `relative 
+                  z-10 flex
+                  transform items-center justify-center
+                  rounded-full transition-all 
                       `,
-                   !like && ["text-[#EA5F5F]"],
-                   like && ["text-white"]   
-                  )}
+              !like && ["text-[#EA5F5F]"],
+              like && ["text-white"]
+            )}
           >
             <Heart
               filled
