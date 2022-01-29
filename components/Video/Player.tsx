@@ -11,7 +11,7 @@ export default function Player() {
   const [played, setplayed] = useState<number>(0);
   const [playVid, setplayVid] = useState<boolean>(false);
   const player = useRef();
-  const playerContainer = useRef(null);
+  const playerContainer = useRef<any|null>(null);
   const [seek, setseek] = useState<boolean>(true);
 
   const timePlayed = player.current? player.current.getCurrentTime() : 0;
