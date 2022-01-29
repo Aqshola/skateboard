@@ -10,7 +10,7 @@ export default function DiscoverMobile(): ReactElement {
     <div className="lg:hidden">
       <Swiper spaceBetween={12} slidesPerView={1.1}>
         {Video.slice(0, 2).map((video, i) => (
-          <SwiperSlide>
+          <SwiperSlide key={"discover-mobile-"+i}>
             <div className="w-full">
               <DiscoverCard
                 key={i + "mobile discover"}

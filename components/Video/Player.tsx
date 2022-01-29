@@ -14,8 +14,8 @@ export default function Player() {
   const playerContainer = useRef<HTMLDivElement>(null);
   const [seek, setseek] = useState<boolean>(true);
 
-  const timePlayed =  player.current.getCurrentTime() || 0;
-  const durationPlay =  player.current.getDuration() || 0;
+  const timePlayed =  player.current?player.current.getCurrentTime() : 0;
+  const durationPlay =  player.current?player.current.getDuration() : 0;
 
   const handleMouseIn = () => {
     setseek(true);

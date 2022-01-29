@@ -4,22 +4,23 @@ import { Swiper, SwiperSlide } from "swiper/react";
 import "swiper/css";
 import Video from "data/Video";
 import next from "next";
+import { Video as VideoType } from "type/type";
 
 interface Props {}
 
 export default function MostWatchMobile({}: Props): ReactElement {
-  const videoList = groupArray(Video.slice(2, Video.length));
-  
+  const videoList = groupArray<VideoType>(Video.slice(2, Video.length));
+
   return (
     <div className="w-full mt-8 lg:hidden">
       <h1 className="mb-5 text-white font-semibold">Most Watched</h1>
       <Swiper spaceBetween={14} slidesPerView={1.07}>
-        {videoList.map((video,i) => (
-          <SwiperSlide key={i+"mobilewrapper"}>
+        {videoList.map((video, i) => (
+          <SwiperSlide key={"most-watch-mobile" + i}>
             <div className="flex flex-col gap-6">
-              {video.map((child,j) => (
+              {video.map((child, j) => (
                 <WatchMobCard
-                key={j+'mobilevideo'}
+                  key={"most-watch-mobile-child" + j}
                   title={child.title}
                   viewCount={child.views}
                   uploader={child.person.name}
@@ -35,7 +36,7 @@ export default function MostWatchMobile({}: Props): ReactElement {
   );
 }
 
-function groupArray(data: Array<any>): Array<any> {
+function groupArray<T>(data: Array<T>): Array<T[]> {
   let count = 0;
   let array: any[] = [];
   let group: any[] = [];

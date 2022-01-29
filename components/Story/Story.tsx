@@ -1,6 +1,7 @@
 import React, { ReactElement } from "react";
 import Image from "next/image";
 import clsx from "clsx";
+import useBlurData from "utils/useBlurData";
 
 interface Props {
   img: string;
@@ -13,6 +14,7 @@ export default function Story({
   watched = false,
   verified,
 }: Props): ReactElement {
+  let blurData=useBlurData(64,64)
   return (
     <div>
       <div
@@ -33,6 +35,8 @@ export default function Story({
             className="rounded-full overflow-hidden"
             objectFit="cover"
             objectPosition={"center"}
+            placeholder="blur"
+            blurDataURL={blurData}
           />
         </div>
 
