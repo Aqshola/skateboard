@@ -1,6 +1,6 @@
 import React, { ReactElement } from "react";
-import MostWatchDesktop from "./mostWatched/MostWatchDesktop";
-import MostWatchMobile from "./mostWatched/MostWatchMobile";
+import MostWatchDesktop from "./MostWatched/MostWatchDesktop";
+import MostWatchMobile from "./MostWatched/MostWatchMobile";
 
 interface Props {}
 
